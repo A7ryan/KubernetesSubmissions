@@ -1,19 +1,26 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: todo-app
-  labels:
-    name: todo-app
 spec:
-  containers:
-  - name: todo-app
-    image: a7ryan/todo-app:latest
-    resources:
-      limits:
-        memory: "64Mi"
-        cpu: "250m"
-    ports:
-      - containerPort: 7700
-    env:
-      - name: PORT
-        value: "7700"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-app
+  template:
+    metadata:
+      labels:
+        app: todo-app
+    spec:
+      containers:
+      - name: todo-app
+        image: a7ryan/todo-app:latest
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+        ports:
+          - containerPort: 7700
+        env:
+          - name: PORT
+            value: "7700"
