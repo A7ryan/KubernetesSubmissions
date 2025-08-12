@@ -1,16 +1,23 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: log-output
-  labels:
-    name: log-output
 spec:
-  containers:
-  - name: log-output
-    image: a7ryan/log_output:latest
-    resources:
-      limits:
-        memory: "64Mi"
-        cpu: "250m"
-    ports:
-      - containerPort: 80
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output
+  template:
+    metadata:
+      labels:
+        app: log-output
+    spec:
+      containers:
+      - name: log-output
+        image: a7ryan/log_output:latest
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 80
