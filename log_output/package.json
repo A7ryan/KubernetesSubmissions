@@ -1,0 +1,15 @@
+{
+  "name": "log_output",
+  "version": "1.0.0",
+  "description": "___",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "randomString.js",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
