@@ -11,3 +11,4 @@
 - [1.5.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.5/single-page-application/manifests)
 - [1.6.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.6/single-page-application/manifests)
 - [1.7.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.7/log_output/manifests)
+- [1.8.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.8/single-page-application/manifests)
