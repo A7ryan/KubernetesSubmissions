@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spa
-        image: a7ryan/spa:latest
+        image: a7ryan/spa:1.8
         resources:
           limits:
             memory: "64Mi"
@@ -32,10 +32,30 @@ kind: Service
 metadata:
   name: spa-service
 spec:
-  type: NodePort
   selector:
     app: spa
   ports:
-  - port: 80
+  - port: 1234
     targetPort: 3000
-    nodePort: 30007
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spa-ingress
+  labels:
+    name: spa-ingress
+spec:
+  rules:
+  - host: gateway.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: spa-service
+            port: 
+              number: 1234

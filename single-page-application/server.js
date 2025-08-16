@@ -1,16 +1,17 @@
-const http = require("http")
+const express = require("express");
 
+const app = express();
 const PORT = process.env.PORT || 3000;
 const NAME = process.env.NAME || "User";
 
-const server = http.createServer((req,res) => {
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end(`
-        <!Doctype>
+app.get("/", (req, res) => {
+    res.status(200).set("Message", "Success");
+    res.send(`
+        <!DOCTYPE html>
         <html>
             <head>
                 <meta charset="utf-8">
-                <title>1.5. The project</title>
+                <title>1.8. The project</title>
             </head>
             <body>
                 <h2 align="center">Grettings, ${NAME}!</h2>
@@ -20,6 +21,6 @@ const server = http.createServer((req,res) => {
     `);
 });
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server started in port ${PORT}`);
 });
