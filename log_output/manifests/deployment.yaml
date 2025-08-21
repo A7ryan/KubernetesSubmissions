@@ -47,7 +47,7 @@ metadata:
 spec:
   rules:
   - host: gateway.local
-  - http:
+    http:
       paths:
       - pathType: Prefix
         path: "/"
@@ -55,4 +55,11 @@ spec:
           service:
             name: log-output-service
             port: 
+              number: 80
+      - pathType: Prefix
+        path: "/pingpong"
+        backend:
+          service:
+            name: pingpong-service
+            port:
               number: 80
