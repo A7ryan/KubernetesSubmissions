@@ -13,3 +13,4 @@
 - [1.7.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.7/log_output/manifests)
 - [1.8.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.8/single-page-application/manifests)
 - [1.9.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.9/ping-pong%20application/manifests)
+- [1.10.](https://github.com/A7ryan/KubernetesSubmissions/tree/1.10/log_output/even-more-services/manifests)
