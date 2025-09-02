@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: even-more-services
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: even-more-services
+  template:
+    metadata:
+      labels:
+        app: even-more-services
+    spec:
+      volumes:
+        - name: randstring-logs
+          emptyDir: {}
+      containers:
+      - name: log-writer
+        image: a7ryan/log-writer:latest
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+        volumeMounts:
+        - name: randstring-logs
+          mountPath: /usr/app/shared
+      - name: log-reader
+        image: a7ryan/log-reader:latest
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: randstring-logs
+          mountPath: /usr/app/shared
